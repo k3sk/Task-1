@@ -1,0 +1,421 @@
+
+/* This section resets default browser styles for consistency across different browsers */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+    /* CSS variables for consistent theming throughout the site */
+    --primary: #8B5CF6;
+    --primary-hover: #7C3AED;
+    --background: #0F172A;
+    --surface: #1E293B;
+    --text: #F8FAFC;
+    --text-secondary: #94A3B8;
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 0.75rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+}
+
+body {
+    /* Basic body styling for font and background */
+    font-family: 'Manrope', sans-serif;
+    line-height: 1.6;
+    background-color: var(--background);
+    color: var(--text);
+}
+
+/* Header styles */
+header {
+    /* Styling for the header section, including background and positioning */
+    background-color: rgba(30, 41, 59, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: var(--spacing-sm) var(--spacing-md);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    height: 64px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    /* Navigation bar styling for layout and alignment */
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    /* Logo styling for font size and color */
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+nav ul {
+    /* Styling for navigation list items */
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav a {
+    /* Styling for navigation links */
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    /* Hover effect for navigation links */
+    color: var(--primary);
+}
+
+/* Main content styles */
+main {
+    /* Main section styling for layout and spacing */
+    margin-top: 60px;
+    padding: 0.5rem;
+    height: calc(100vh - 60px);
+    display: flex;
+    align-items: center;
+}
+
+.bento-grid {
+    /* Grid layout for main content boxes */
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+}
+
+.bento-box {
+    /* Styling for individual content boxes */
+    background: rgba(30, 41, 59, 0.9);
+    border-radius: 24px;
+    padding: var(--spacing-lg);
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    backdrop-filter: blur(8px);
+}
+
+.bento-box::before {
+    /* Decorative gradient line for hover effect */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.bento-box:hover {
+    /* Hover effect for content boxes */
+    transform: translateY(-5px);
+    border-color: var(--primary);
+}
+
+.bento-box:hover::before {
+    /* Hover effect for gradient line */
+    opacity: 1;
+}
+
+.profile {
+    /* Profile box styling for layout and background */
+    text-align: center;
+    grid-column: 2 / 4;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-xl);
+    background: linear-gradient(to bottom right, rgba(139, 92, 246, 0.1), rgba(30, 41, 59, 0.9));
+}
+
+.profile img {
+    /* Profile image styling for size and border */
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    margin-bottom: var(--spacing-lg);
+    border: 4px solid var(--primary);
+    padding: 6px;
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile img:hover {
+    /* Hover effect for profile image */
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
+}
+
+.profile h1 {
+    /* Styling for profile name */
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+.social-links {
+    /* Layout for social media links */
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.social-link, .project-tech span {
+    /* Styling for social links and project tech tags */
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    background: rgba(139, 92, 246, 0.1);
+    border: 1px solid transparent;
+}
+
+.social-link:hover, .project-tech span:hover {
+    /* Hover effect for social links and project tech tags */
+    color: var(--primary);
+    background: rgba(139, 92, 246, 0.2);
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.skills {
+    /* Skills section styling for layout */
+    grid-column: 1 / 2;
+    grid-row: 1;
+    margin-bottom: var(--spacing-md);
+}
+
+.skills ul {
+    /* Layout for skills list */
+    list-style: none;
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 0.75rem;
+}
+
+.skills li, .stat-box {
+    /* Styling for individual skills and stat boxes */
+    background: rgba(139, 92, 246, 0.1);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: 16px;
+    text-align: center;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.skills li:hover, .stat-box:hover {
+    /* Hover effect for skills and stat boxes */
+    background: var(--primary);
+    color: var(--text);
+}
+
+.stats-grid {
+    /* Layout for stats section */
+    grid-column: 1 / 2;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    margin-top: auto;
+}
+
+.stat-box {
+    /* Styling for individual stat boxes */
+    background: rgba(139, 92, 246, 0.1);
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.stat-box h3 {
+    /* Styling for stat box headers */
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 0.25rem;
+}
+
+.stat-box p {
+    /* Styling for stat box paragraphs */
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.projects {
+    /* Layout for projects section */
+    grid-column: 4 / 5;
+    grid-row: 1 / 3;
+    max-height: 100%;
+    overflow-y: hidden;
+}
+
+.project-item {
+    /* Styling for individual project items */
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-lg);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.project-item::after {
+    /* Decorative gradient overlay for hover effect */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(139, 92, 246, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-item:hover::after {
+    /* Hover effect for gradient overlay */
+    opacity: 1;
+}
+
+.project-item:hover {
+    /* Hover effect for project items */
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--primary);
+}
+
+.project-tech {
+    /* Layout for project tech tags */
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.project-tech span {
+    /* Styling for individual project tech tags */
+    background: rgba(139, 92, 246, 0.1);
+    color: var(--primary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+}
+
+.project-item a {
+    color: white;
+    text-decoration: none;
+}
+
+.process {
+    /* Layout for process section */
+    grid-column: 1 / 2;
+    grid-row: 1;
+}
+
+/* Footer styles */
+footer {
+    /* Styling for footer section */
+    text-align: center;
+    padding: 0.5rem;
+    background: var(--surface);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-secondary);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive design */
+@media (max-width: 1440px) {
+    /* Responsive grid layout for larger screens */
+    .bento-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    /* Responsive grid layout for medium screens */
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .profile {
+        grid-column: 1 / -1;
+        grid-row: auto;
+    }
+    .skills {
+        grid-column: auto;
+        grid-row: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Responsive layout adjustments for smaller screens */
+    header {
+        height: auto;
+        padding: var(--spacing-xs);
+    }
+
+    nav {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        padding: var(--spacing-xs);
+    }
+
+    nav ul {
+        gap: var(--spacing-sm);
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .bento-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+        padding: var(--spacing-sm);
+    }
+
+    main {
+        padding: var(--spacing-sm);
+        margin-top: 80px;
+    }
+
+    .profile img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .skills ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
