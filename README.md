@@ -1,7 +1,5 @@
 # Task-1 – Create a Simple Responsive Landing Page Using HTML & CSS.
 
-🚀 **Internship Assignment Task 1**
-
 ### 🎯 Objective
  Build a clean, responsive landing page with a header, hero section, and footer.
 
